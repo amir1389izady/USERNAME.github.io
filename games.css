@@ -1,0 +1,44 @@
+/* styles/games.css */
+
+.games-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--primary-text);
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.game-card:hover {
+    background-color: #3a3a3a;
+    transform: translateY(-5px);
+}
+
+.game-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.game-name {
+    font-weight: bold;
+    font-size: 1rem;
+}
+

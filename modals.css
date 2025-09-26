@@ -1,0 +1,151 @@
+/* styles/modals.css */
+
+/* Generic Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--secondary-bg);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--accent-color);
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    color: var(--primary-text);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.modal-close-btn:hover {
+    opacity: 1;
+}
+
+.modal-body {
+    overflow-y: auto;
+}
+
+/* Economy Source Modal Specifics */
+.source-detail-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.source-detail-item:last-child {
+    border-bottom: none;
+}
+.source-detail-item p {
+    margin: 0;
+}
+.source-status {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.source-status.online {
+    background-color: var(--success-color);
+}
+.source-status.offline {
+    background-color: var(--error-color);
+}
+
+/* Category Selector Overlay */
+#category-selector-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-selector-modal {
+    background-color: var(--secondary-bg);
+    padding: 3rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+}
+
+.category-selector-modal h2 {
+    margin-bottom: 1rem;
+}
+
+.category-selector-modal p {
+    color: #ccc;
+    margin-bottom: 2.5rem;
+}
+
+.category-selector-options {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.category-option {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    flex: 1;
+}
+
+.category-option:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.2);
+}
+
+.category-option .category-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.category-option h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}

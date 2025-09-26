@@ -1,0 +1,240 @@
+
+```css
+/* styles/builder.css */
+
+/* File Converter */
+.file-converter-form-layout {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.file-converter-main-inputs {
+    flex-grow: 1;
+}
+
+.file-converter-types {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--primary-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    min-width: 180px;
+}
+
+.file-type-label {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+
+.file-type-label:hover {
+    background-color: var(--card-bg);
+}
+
+.file-type-label input {
+    display: none;
+}
+
+.file-type-label.selected {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    font-weight: bold;
+}
+
+
+/* Upload Section */
+.upload-container {
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.upload-container h3 {
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.upload-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.upload-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.upload-form input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--primary-text);
+}
+
+.upload-prompt {
+    text-align: center;
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.upload-prompt a {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.upload-prompt a:hover {
+    text-decoration: underline;
+}
+
+/* AI Builder Sections */
+.builder-section {
+    margin-top: 3rem;
+}
+
+.builder-container {
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-top: 1.5rem;
+}
+
+.builder-container h3 {
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+#code-input, #code-analyzer-input {
+    width: 100%;
+    min-height: 250px;
+    resize: vertical;
+}
+
+#builder-results, #code-generator-results {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    border-left: 3px solid var(--success-color);
+}
+
+#builder-results h4, #code-generator-results h4 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+#builder-results p {
+    margin-bottom: 0.75rem;
+}
+
+#builder-results .feedback {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    font-style: italic;
+    color: #ccc;
+}
+
+#code-output, #code-analyzer-output {
+    background-color: var(--primary-bg);
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Code Analyzer */
+.code-editor-toolbar {
+    background-color: var(--primary-bg);
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    gap: 0.5rem;
+}
+
+#code-analyzer-input {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+}
+
+/* Build Log Simulation */
+.build-log {
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.build-log p {
+    margin: 0 0 0.5rem;
+    padding-left: 28px;
+    position: relative;
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.build-log p:last-child {
+    margin-bottom: 0;
+}
+
+.build-log p::before {
+    content: '⚪'; /* Pending */
+    font-size: 0.8em;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    text-align: center;
+}
+
+.build-log p.running {
+    color: var(--primary-text);
+}
+
+.build-log p.running::before {
+    content: '⚙️';
+    font-size: 1em;
+    top: 0;
+    display: inline-block;
+    animation: spin 1.5s linear infinite;
+}
+
+.build-log p.success {
+    color: var(--primary-text);
+}
+
+.build-log p.success::before {
+    content: '✅';
+    font-size: 1em;
+    top: 0;
+    animation: none;
+}
+
+.build-log p.final-success {
+    color: var(--success-color);
+    font-weight: bold;
+}

@@ -1,0 +1,116 @@
+
+```
+/* styles/website-builder.css */
+
+.website-builder-container {
+    display: flex;
+    gap: 1.5rem;
+    height: 75vh;
+}
+
+.editor-pane, .preview-pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.editor-pane h3, .preview-pane h3 {
+    padding: 0.8rem 1rem;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    margin: 0;
+}
+
+.editor-tabs {
+    display: flex;
+    background-color: var(--primary-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.editor-tab {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--primary-text);
+    opacity: 0.6;
+    border-bottom: 2px solid transparent;
+}
+
+.editor-tab.active {
+    opacity: 1;
+    font-weight: bold;
+    border-bottom-color: var(--accent-color);
+}
+
+.editor-content {
+    flex-grow: 1;
+    position: relative;
+}
+
+.code-editor {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    resize: none;
+    display: none; /* Hidden by default */
+}
+
+.code-editor.active {
+    display: block;
+}
+
+.preview-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #fff;
+}
+
+.builder-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#publish-status {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+#publish-status a {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.ai-template-form {
+    margin-top: 2rem;
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.ai-template-form h4 {
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.ai-template-form .form-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.ai-template-form input {
+    flex-grow: 1;
+}

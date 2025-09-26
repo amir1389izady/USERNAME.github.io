@@ -1,0 +1,14 @@
+/* styles/pages.css */
+
+/* Tombstone: All CSS rules from this file have been refactored and moved into more specific files within the /styles/ directory.
+   - Home page styles are in styles/home.css
+   - Admin panel styles are in styles/admin.css
+   - Login styles are in styles/login.css
+   - Builder component styles are in styles/builder.css
+   - Website builder styles are in styles/website-builder.css
+   - Games styles are in styles/games.css
+   - Economy hub styles are in styles/economy.css
+   - Modal styles are in styles/modals.css
+
+   This file is kept to avoid breaking any legacy imports but is now empty.
+*/

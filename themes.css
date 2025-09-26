@@ -1,0 +1,130 @@
+
+```css
+/* styles/themes.css */
+
+/* 
+  This file defines color palettes for various themes using CSS variables.
+  The theme is applied by setting a `data-theme` attribute on the <body> tag.
+  Base styles in other files are updated to use these variables.
+*/
+
+:root,
+body[data-theme="dark-default"] {
+    --primary-bg: #121212;
+    --secondary-bg: #1e1e1e;
+    --card-bg: #2a2a2a;
+    --primary-text: #e0e0e0;
+    --accent-color: #00bcd4;
+    --accent-hover: #00dcf4;
+    --border-color: #333;
+    --success-color: #4caf50;
+    --error-color: #f44336;
+}
+
+body[data-theme="classic-light"] {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f0f4f8;
+    --card-bg: #ffffff;
+    --primary-text: #2c3e50;
+    --accent-color: #3498db;
+    --accent-hover: #5dade2;
+    --border-color: #dce4ec;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+}
+
+body[data-theme="gold-rush"] {
+    --primary-bg: #2c261e;
+    --secondary-bg: #4a3f30;
+    --card-bg: #5f513f;
+    --primary-text: #f5eeda;
+    --accent-color: #d4af37;
+    --accent-hover: #e0c56a;
+    --border-color: #6d5f4c;
+    --success-color: #a3b947;
+    --error-color: #c97d6d;
+}
+
+body[data-theme="modern-gradient"] {
+    --primary-bg: #1a1a2e;
+    --secondary-bg: #16213e;
+    --card-bg: #0f3460;
+    --primary-text: #e94560;
+    --accent-color: #533483;
+    --accent-hover: #8B5FBF;
+    --border-color: #2c3e50;
+    --success-color: #6dd47e;
+    --error-color: #ff6363;
+}
+
+body[data-theme="minimal-gray"] {
+    --primary-bg: #e9e9e9;
+    --secondary-bg: #f5f5f5;
+    --card-bg: #ffffff;
+    --primary-text: #333333;
+    --accent-color: #555555;
+    --accent-hover: #777777;
+    --border-color: #dddddd;
+    --success-color: #4b8f8c;
+    --error-color: #c0392b;
+}
+
+body[data-theme="nature-green"] {
+    --primary-bg: #f0f7f1;
+    --secondary-bg: #e4efe5;
+    --card-bg: #ffffff;
+    --primary-text: #2d572c;
+    --accent-color: #4caf50;
+    --accent-hover: #66bb6a;
+    --border-color: #c8e6c9;
+    --success-color: #388e3c;
+    --error-color: #d32f2f;
+}
+
+body[data-theme="energy-orange"] {
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #2b2b2b;
+    --card-bg: #3c3c3c;
+    --primary-text: #f0f0f0;
+    --accent-color: #ff6600;
+    --accent-hover: #ff8533;
+    --border-color: #4a4a4a;
+    --success-color: #76c7c0;
+    --error-color: #f08080;
+}
+
+body[data-theme="fantasy-pink"] {
+    --primary-bg: #2c2a4a;
+    --secondary-bg: #4f4c7a;
+    --card-bg: #7f79a4;
+    --primary-text: #f0d9e7;
+    --accent-color: #d63f8b;
+    --accent-hover: #e65fa5;
+    --border-color: #6a668c;
+    --success-color: #8afad0;
+    --error-color: #fa8a8a;
+}
+
+body[data-theme="marine-blue"] {
+    --primary-bg: #f0f8ff;
+    --secondary-bg: #e6f2ff;
+    --card-bg: #ffffff;
+    --primary-text: #003366;
+    --accent-color: #0077cc;
+    --accent-hover: #0099ff;
+    --border-color: #b3d9ff;
+    --success-color: #2e8b57;
+    --error-color: #dc143c;
+}
+
+body[data-theme="professional-red"] {
+    --primary-bg: #2d2d2d;
+    --secondary-bg: #3c3c3c;
+    --card-bg: #4a4a4a;
+    --primary-text: #cccccc;
+    --accent-color: #c0392b;
+    --accent-hover: #e74c3c;
+    --border-color: #5d5d5d;
+    --success-color: #27ae60;
+    --error-color: #f39c12;
+}

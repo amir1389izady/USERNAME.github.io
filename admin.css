@@ -1,0 +1,133 @@
+
+```
+/* styles/admin.css */
+
+.admin-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.stat-item {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.channel-list {
+    list-style: none;
+}
+
+.channel-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.channel-list li:last-child {
+    border-bottom: none;
+}
+
+.channel-actions button {
+    background: none;
+    border: none;
+    color: var(--primary-text);
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.channel-actions button:hover {
+    color: var(--accent-color);
+}
+.channel-actions .delete-btn:hover {
+    color: var(--error-color);
+}
+
+.add-channel-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.add-channel-form input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--primary-text);
+}
+
+.add-channel-form button {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-message-list {
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.admin-message-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-message-list li:last-child {
+    border-bottom: none;
+}
+
+.admin-message-content {
+    flex-grow: 1;
+}
+.admin-message-content p {
+    margin: 0.25rem 0;
+}
+.admin-message-time {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.telegram-bot-description {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.telegram-bot-description a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.telegram-bot-description a:hover {
+    text-decoration: underline;
+}
+
+.telegram-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.telegram-status {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    background-color: var(--primary-bg);
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.telegram-status p {
+    margin: 0.4rem 0;
+}

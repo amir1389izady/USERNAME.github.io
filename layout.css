@@ -1,0 +1,37 @@
+/* styles/layout.css */
+
+header {
+    background-color: var(--secondary-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 5%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+main {
+    flex-grow: 1;
+    padding: 2rem 5%;
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 5%;
+    background-color: var(--secondary-bg);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* 
+    Tombstone: Responsive rules for home page elements were moved to styles/home.css 
+*/

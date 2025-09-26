@@ -1,0 +1,253 @@
+/* styles/economy.css */
+
+.economy-container.theme-dark {
+    --eco-bg: var(--secondary-bg);
+    --eco-card-bg: var(--card-bg);
+    --eco-border: var(--border-color);
+    --eco-text: var(--primary-text);
+    --eco-text-muted: #ccc;
+    --eco-header-bg: var(--primary-bg);
+    --chart-line-color: var(--accent-color);
+    --chart-bg-color: rgba(0, 188, 212, 0.1);
+    --chart-text-color: #aaa;
+    --chart-grid-color: rgba(255, 255, 255, 0.1);
+}
+
+.economy-container.theme-light {
+    --eco-bg: #f4f7fa;
+    --eco-card-bg: #ffffff;
+    --eco-border: #e1e8ed;
+    --eco-text: #2c3e50;
+    --eco-text-muted: #566573;
+    --eco-header-bg: #e8ecf1;
+    --chart-line-color: #3498db;
+    --chart-bg-color: rgba(52, 152, 219, 0.1);
+    --chart-text-color: #555;
+    --chart-grid-color: rgba(0, 0, 0, 0.1);
+}
+
+.economy-container {
+    background-color: var(--eco-bg);
+    color: var(--eco-text);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+.economy-container h2, .economy-container h3, .economy-container h4 {
+    color: var(--primary-text);
+}
+.economy-container h2 {
+    border-bottom-color: var(--border-color);
+}
+
+.economy-header {
+    position: relative;
+    top: auto;
+    background-color: transparent;
+    padding: 0;
+    border-bottom: none;
+    
+    /* Sticky header styles */
+    position: sticky;
+    top: 0;
+    background-color: var(--eco-header-bg);
+    padding: 1.5rem 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--eco-border);
+    margin-top: -1.5rem; /* Counteract parent padding */
+}
+
+.settings-bar {
+    position: fixed;
+    top: 70px;
+    right: 5%;
+    z-index: 1000;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    background-color: var(--eco-card-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--eco-border);
+    backdrop-filter: saturate(1.2) blur(3px);
+}
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.setting-item label {
+    font-size: 0.9rem;
+    color: var(--eco-text);
+    opacity: 0.8;
+}
+.setting-item select {
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+    border: 1px solid var(--eco-border);
+    border-radius: 4px;
+    padding: 0.3rem;
+    font-family: inherit;
+}
+
+
+.economy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.economy-card {
+    background-color: var(--eco-card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--eco-border);
+}
+.economy-card h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--eco-border);
+    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.loading-spinner-small {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--eco-border);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Gold Prices */
+.price-summary .price-large {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 0.5rem 0;
+}
+.price-summary .price-range {
+    font-size: 0.9rem;
+    color: var(--eco-text);
+    opacity: 0.7;
+}
+.sources-list {
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--eco-border);
+    padding-top: 1.5rem;
+}
+.source-item {
+    margin-bottom: 1rem;
+}
+.source-item p { margin: 0; }
+.source-meta { font-size: 0.8rem; color: var(--eco-text); opacity: 0.7; }
+.source-meta a { color: var(--accent-color); text-decoration: none; }
+.last-updated { font-size: 0.8rem; color: var(--eco-text); opacity: 0.7; text-align: right; margin-top: 1rem; }
+
+.source-warning {
+    background-color: rgba(255, 165, 0, 0.1);
+    color: orange;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    border: 1px solid orange;
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+}
+
+.view-sources-btn {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.5rem;
+}
+
+/* Chart */
+.chart-card {
+    grid-column: 1 / -1; /* Span full width */
+}
+.chart-wrapper {
+    position: relative;
+    height: 350px;
+}
+.chart-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.chart-interval-btn {
+    background: var(--secondary-bg);
+    border: 1px solid var(--eco-border);
+    color: var(--eco-text);
+    opacity: 0.7;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.chart-interval-btn.active {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+    font-weight: bold;
+    border-color: var(--accent-color);
+    opacity: 1;
+}
+
+/* Calculator */
+#calculator-results h4 { margin-bottom: 1rem; }
+.calc-result-section { margin-top: 1.5rem; }
+.bank-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+.bank-result-item {
+    background: var(--secondary-bg);
+    padding: 1rem;
+    border-radius: 6px;
+}
+.bank-result-item h5 { margin: 0 0 0.5rem; }
+.bank-result-item ul { list-style: none; padding: 0; margin: 0; font-size: 0.9rem; }
+
+/* AI Advisor */
+.advice-card {
+    background: var(--secondary-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    border-left: 3px solid var(--accent-color);
+}
+.advice-card p { margin: 0.5rem 0; }
+.reasoning { font-style: italic; color: var(--eco-text); opacity: 0.7; font-size: 0.9rem; }
+.prediction-rise { color: var(--success-color); font-weight: bold; }
+.prediction-fall { color: var(--error-color); font-weight: bold; }
+.prediction-stable { color: var(--eco-text); opacity: 0.7; font-weight: bold; }
+.rec-buy { color: var(--success-color); }
+.rec-sell { color: var(--error-color); }
+.rec-hold { color: var(--eco-text); opacity: 0.7; }
+.risk-low { color: var(--success-color); }
+.risk-medium { color: orange; }
+.risk-high { color: var(--error-color); }
+
+/* Product Price Demo */
+.product-price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.product-card {
+    background: var(--secondary-bg);
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+}
+.product-name { font-weight: bold; }
+.product-price { font-size: 1.5rem; margin: 0.5rem 0; color: var(--accent-color); }
+.product-source { font-size: 0.8rem; color: var(--eco-text); opacity: 0.7; }
