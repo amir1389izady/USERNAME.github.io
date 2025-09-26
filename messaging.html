@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevHub Public Chat</title>
+  <style>
+    :root { --bg:#fff; --text:#111; --muted:#666; --line:#e5e5e5; --accent:#0b5fff; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 sans-serif;display:flex;min-height:100vh;align-items:stretch}
+    .wrap{max-width:720px;margin:24px auto;padding:24px;flex:1;display:flex;flex-direction:column;gap:12px}
+    h1{font-size:20px;margin:0}
+    .panel{border:1px solid var(--line);border-radius:10px;background:#fafafa;display:flex;flex-direction:column;min-height:60vh;overflow:hidden}
+    .messages{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#fff}
+    .msg{border:1px solid var(--line);padding:10px;border-radius:8px;word-break:break-word}
+    .time{color:var(--muted);font-size:12px;margin-top:6px;text-align:right}
+    .composer{border-top:1px solid var(--line);padding:12px;display:flex;gap:8px;background:#fff;border-bottom-left-radius:10px;border-bottom-right-radius:10px}
+    input[type="text"]{flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font:inherit}
+    button{padding:10px 14px;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:8px;font-weight:600;cursor:pointer}
+    button:disabled{opacity:.6;cursor:not-allowed}
+    .empty{color:var(--muted);text-align:center;padding:24px}
+    .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="row">
+      <h1>Public Messages</h1>
+      <button id="refreshBtn" title="Refresh">Refresh</button>
+    </div>
+    <div class="panel">
+      <div id="messages" class="messages" aria-live="polite"></div>
+      <form id="composer" class="composer" autocomplete="off">
+        <input id="messageInput" type="text" placeholder="Write a message…" required />
+        <button id="sendBtn" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // WebSimSocket Chat Setup
+    let chatRoom, messagesCollection;
+
+    async function initChat() {
+      try {
+        chatRoom = await WebSimSocket.createRoom('devhub-chat');
+        messagesCollection = await chatRoom.createCollection('messages');
+        loadMessages();
+      } catch(e) {
+        console.error('WebSimSocket init failed', e);
+      }
+    }
+
+    function renderMessages(list) {
+      const container = document.getElementById('messages');
+      if(!list || list.length===0){
+        container.innerHTML = '<div class="empty">No messages yet. Be the first!</div>';
+        return;
+      }
+      container.innerHTML = list.map(m => `
+        <div class="msg">
+          <div>${m.text}</div>
+          <div class="time">${new Date(m.time).toLocaleString()}</div>
+        </div>
+      `).join('');
+      container.scrollTop = container.scrollHeight;
+    }
+
+    async function loadMessages() {
+      if(!messagesCollection) return;
+      try {
+        const all = await messagesCollection.find();
+        renderMessages(all);
+      } catch(e) {
+        console.error('Load messages failed', e);
+      }
+    }
+
+    async function sendMessage(text){
+      if(!messagesCollection || !text) return;
+      try{
+        await messagesCollection.create({ text, time: new Date().toISOString() });
+        await loadMessages();
+      }catch(e){
+        console.error('Send failed', e);
+      }
+    }
+
+    // Event Listeners
+    const composer = document.getElementById('composer');
+    const input = document.getElementById('messageInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const refreshBtn = document.getElementById('refreshBtn');
+
+    composer.addEventListener('submit', async e=>{
+      e.preventDefault();
+      sendBtn.disabled = true;
+      const msg = input.value.trim();
+      if(msg) await sendMessage(msg);
+      input.value = '';
+      sendBtn.disabled = false;
+    });
+
+    refreshBtn.addEventListener('click', loadMessages);
+
+    // Polling every 3s
+    setInterval(loadMessages, 3000);
+
+    initChat();
+  </script>
+</body>
+</html>
